@@ -66,7 +66,7 @@ const sliders = (sliderContentSelector, sliderDirection, prevButton, nextButton)
 
 
     slider[0].parentNode.addEventListener('mouseenter', ()=>{
-        clearInterval(animationPaused)
+        clearInterval(animationPaused) 
     });
     slider[0].parentNode.addEventListener('mouseleave', ()=>{
         activateAnimation()

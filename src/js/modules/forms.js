@@ -1,4 +1,5 @@
 import {postData} from "../services/requests";
+import calc from "./calc";
 
 const forms = () => {
     const form = document.querySelectorAll('form'),
@@ -70,6 +71,12 @@ const forms = () => {
 
             item.closest('.popup-design') || item.classList.contains('calc_form') ?
             api = path.design : api = path.server;
+
+            let price = document.querySelector('.calc-price');
+
+            if(item.classList.contains('calc-form')){
+                formData.append('price', price.textContent)
+            }
 
             
             postData(api, formData)

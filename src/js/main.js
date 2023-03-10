@@ -7,6 +7,10 @@ import showMoreStyles from "./modules/showMoreStyles";
 import calc from "./modules/calc";
 import tabs from "./modules/tabs";
 import imageBlocks from "./modules/imageBlocks";
+import accordion from "./modules/accordion";
+import burger from "./modules/burger";
+import scroll from "./modules/scroll";
+import drop from "./modules/drop";
 
 window.addEventListener('DOMContentLoaded', ()=>{
 
@@ -21,4 +25,8 @@ window.addEventListener('DOMContentLoaded', ()=>{
     calc('#size', '#material', '#options', '.promocode', '.calc-price');
     tabs();
     imageBlocks('.sizes-block');
+    accordion('.accordion-heading', '.accordion-block');
+    burger('.burger', '.burger-menu');
+    scroll('.pageup');
+    drop();
 })

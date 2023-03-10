@@ -1,10 +1,10 @@
 import {postData} from "../services/requests";
-import calc from "./calc";
 
 const forms = () => {
     const form = document.querySelectorAll('form'),
           inputs = document.querySelectorAll('input'),
           upload = document.querySelectorAll('[name="upload"]'),
+          textArea = document.querySelectorAll('textarea'),
           windows = document.querySelectorAll('[data-modal]');
     
     const message = {
@@ -27,7 +27,10 @@ const forms = () => {
         });
         upload.forEach(item => {
             item.previousElementSibling.textContent = 'Файл не выбран'
-        })
+        });
+        textArea.forEach(item => {
+            item.value = '';
+        });
     };
 
     upload.forEach(item =>{

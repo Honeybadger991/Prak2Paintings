@@ -62,6 +62,19 @@ h4 {
 .status{
   text-align: center;
 }
+.pageup {
+opacity: 0;
+width: 26px ;
+height: 26px;
+position: fixed;
+bottom: 100px;
+right: 5%;
+z-index: 30;
+background-color: #fff;
+cursor: pointer;
+border: 1px solid white;
+transition: 1s all;
+}
 .p15 {
   font-size: 1.5;
 }
@@ -905,10 +918,19 @@ h4 {
 .often-questions .accordion-heading span {
   border-bottom: 2px dotted #333;
 }
+.often-questions .accordion-heading.active-style span {
+  border: none;
+  color: #E950D7;
+}
 .often-questions .accordion-block {
+  display: none;
+}
+.often-questions .accordion-block.active-content {
   margin-top: 1rem;
   background-color: #f7e7e6;
   padding: 3rem 4rem;
+  display: block;
+  transition: 0.6s all ease-in;
 }
 .often-questions .accordion-block:before {
   content: '';

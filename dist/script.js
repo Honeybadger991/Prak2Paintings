@@ -4410,6 +4410,14 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _modules_calc__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./modules/calc */ "./src/js/modules/calc.js");
 /* harmony import */ var _modules_tabs__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./modules/tabs */ "./src/js/modules/tabs.js");
 /* harmony import */ var _modules_imageBlocks__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./modules/imageBlocks */ "./src/js/modules/imageBlocks.js");
+/* harmony import */ var _modules_accordion__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./modules/accordion */ "./src/js/modules/accordion.js");
+/* harmony import */ var _modules_burger__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./modules/burger */ "./src/js/modules/burger.js");
+/* harmony import */ var _modules_scroll__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./modules/scroll */ "./src/js/modules/scroll.js");
+/* harmony import */ var _modules_drop__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ./modules/drop */ "./src/js/modules/drop.js");
+
+
+
+
 
 
 
@@ -4431,7 +4439,84 @@ window.addEventListener('DOMContentLoaded', function () {
   Object(_modules_calc__WEBPACK_IMPORTED_MODULE_6__["default"])('#size', '#material', '#options', '.promocode', '.calc-price');
   Object(_modules_tabs__WEBPACK_IMPORTED_MODULE_7__["default"])();
   Object(_modules_imageBlocks__WEBPACK_IMPORTED_MODULE_8__["default"])('.sizes-block');
+  Object(_modules_accordion__WEBPACK_IMPORTED_MODULE_9__["default"])('.accordion-heading', '.accordion-block');
+  Object(_modules_burger__WEBPACK_IMPORTED_MODULE_10__["default"])('.burger', '.burger-menu');
+  Object(_modules_scroll__WEBPACK_IMPORTED_MODULE_11__["default"])('.pageup');
+  Object(_modules_drop__WEBPACK_IMPORTED_MODULE_12__["default"])();
 });
+
+/***/ }),
+
+/***/ "./src/js/modules/accordion.js":
+/*!*************************************!*\
+  !*** ./src/js/modules/accordion.js ***!
+  \*************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var core_js_modules_web_dom_collections_for_each__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! core-js/modules/web.dom-collections.for-each */ "./node_modules/core-js/modules/web.dom-collections.for-each.js");
+/* harmony import */ var core_js_modules_web_dom_collections_for_each__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(core_js_modules_web_dom_collections_for_each__WEBPACK_IMPORTED_MODULE_0__);
+
+
+var accordion = function accordion(btnTriggers, contentBlocks) {
+  var btns = document.querySelectorAll(btnTriggers),
+      content = document.querySelectorAll(contentBlocks);
+  content.forEach(function (item) {
+    item.classList.add('animated', 'fadeInUp');
+  });
+  btns.forEach(function (btn) {
+    btn.addEventListener('click', function () {
+      if (this.classList.contains('active-style')) {
+        this.classList.remove('active-style');
+        this.nextElementSibling.classList.remove('active-content');
+      } else {
+        btns.forEach(function (item) {
+          item.classList.remove('active-style');
+        });
+        content.forEach(function (item) {
+          item.classList.remove('active-content');
+        });
+        this.classList.add('active-style');
+        this.nextElementSibling.classList.add('active-content');
+      }
+    });
+  });
+};
+
+/* harmony default export */ __webpack_exports__["default"] = (accordion);
+
+/***/ }),
+
+/***/ "./src/js/modules/burger.js":
+/*!**********************************!*\
+  !*** ./src/js/modules/burger.js ***!
+  \**********************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+var burger = function burger(burgerTrigger, burgerContent) {
+  var menuBtn = document.querySelector(burgerTrigger),
+      menuContent = document.querySelector(burgerContent);
+  menuContent.style.display = 'none';
+  menuBtn.addEventListener('click', function () {
+    if (menuContent.style.display == 'none' && window.screen.availWidth < 993) {
+      menuContent.style.display = 'block';
+    } else {
+      menuContent.style.display = 'none';
+    }
+  });
+  window.addEventListener('resize', function () {
+    if (!window.screen.availWidth < 993) {
+      menuContent.style.display = 'none';
+    }
+  });
+};
+
+/* harmony default export */ __webpack_exports__["default"] = (burger);
 
 /***/ }),
 
@@ -4514,6 +4599,87 @@ var checkTextInputs = function checkTextInputs(selector) {
 
 /***/ }),
 
+/***/ "./src/js/modules/drop.js":
+/*!********************************!*\
+  !*** ./src/js/modules/drop.js ***!
+  \********************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var core_js_modules_es_function_name__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! core-js/modules/es.function.name */ "./node_modules/core-js/modules/es.function.name.js");
+/* harmony import */ var core_js_modules_es_function_name__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(core_js_modules_es_function_name__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var core_js_modules_es_string_split__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! core-js/modules/es.string.split */ "./node_modules/core-js/modules/es.string.split.js");
+/* harmony import */ var core_js_modules_es_string_split__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(core_js_modules_es_string_split__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var core_js_modules_web_dom_collections_for_each__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! core-js/modules/web.dom-collections.for-each */ "./node_modules/core-js/modules/web.dom-collections.for-each.js");
+/* harmony import */ var core_js_modules_web_dom_collections_for_each__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(core_js_modules_web_dom_collections_for_each__WEBPACK_IMPORTED_MODULE_2__);
+
+
+
+
+var drop = function drop() {
+  var inputs = document.querySelectorAll('[name="upload"]');
+  ['dragenter', 'dragleave', 'dragover', 'drop'].forEach(function (eventType) {
+    inputs.forEach(function (input) {
+      input.addEventListener(eventType, preventDefaults, false);
+    });
+  });
+
+  function preventDefaults(e) {
+    e.preventDefault();
+    e.stopPropagation();
+  }
+
+  function highlight(item) {
+    item.closest('.file_upload').style.border = 'solid 5px yellow';
+    item.closest('.file_upload').style.background = 'rgba(0, 0, 0, .7)';
+  }
+
+  ;
+
+  function unhighlight(item) {
+    item.closest('.file_upload').style.border = 'none';
+
+    if (item.closest('.calc-form')) {
+      item.closest('.file_upload').style.background = '#fff';
+    } else {
+      item.closest('.file_upload').style.background = '#ededed';
+    }
+  }
+
+  ;
+  ['dragenter', 'dragover'].forEach(function (eventType) {
+    inputs.forEach(function (input) {
+      input.addEventListener(eventType, function () {
+        return highlight(input);
+      }, false);
+    });
+  });
+  ['dragleave', 'drop'].forEach(function (eventType) {
+    inputs.forEach(function (input) {
+      input.addEventListener(eventType, function () {
+        return unhighlight(input);
+      }, false);
+    });
+  });
+  inputs.forEach(function (input) {
+    input.addEventListener('drop', function (e) {
+      e.preventDefault();
+      input.files = e.dataTransfer.files;
+      var dots;
+      var arr = input.files[0].name.split('.');
+      arr[0].length > 6 ? dots = "..." : dots = '.';
+      var name = arr[0].substring(0, 6) + dots + arr[1];
+      input.previousElementSibling.textContent = name;
+    });
+  });
+};
+
+/* harmony default export */ __webpack_exports__["default"] = (drop);
+
+/***/ }),
+
 /***/ "./src/js/modules/forms.js":
 /*!*********************************!*\
   !*** ./src/js/modules/forms.js ***!
@@ -4538,8 +4704,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var core_js_modules_web_dom_collections_for_each__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! core-js/modules/web.dom-collections.for-each */ "./node_modules/core-js/modules/web.dom-collections.for-each.js");
 /* harmony import */ var core_js_modules_web_dom_collections_for_each__WEBPACK_IMPORTED_MODULE_6___default = /*#__PURE__*/__webpack_require__.n(core_js_modules_web_dom_collections_for_each__WEBPACK_IMPORTED_MODULE_6__);
 /* harmony import */ var _services_requests__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../services/requests */ "./src/js/services/requests.js");
-/* harmony import */ var _calc__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./calc */ "./src/js/modules/calc.js");
-
 
 
 
@@ -4553,6 +4717,7 @@ var forms = function forms() {
   var form = document.querySelectorAll('form'),
       inputs = document.querySelectorAll('input'),
       upload = document.querySelectorAll('[name="upload"]'),
+      textArea = document.querySelectorAll('textarea'),
       windows = document.querySelectorAll('[data-modal]');
   var message = {
     loading: 'Загрузка...',
@@ -4573,6 +4738,9 @@ var forms = function forms() {
     });
     upload.forEach(function (item) {
       item.previousElementSibling.textContent = 'Файл не выбран';
+    });
+    textArea.forEach(function (item) {
+      item.value = '';
     });
   };
 
@@ -4870,6 +5038,71 @@ var modal = function modal() {
 };
 
 /* harmony default export */ __webpack_exports__["default"] = (modal);
+
+/***/ }),
+
+/***/ "./src/js/modules/scroll.js":
+/*!**********************************!*\
+  !*** ./src/js/modules/scroll.js ***!
+  \**********************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var core_js_modules_web_dom_collections_for_each__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! core-js/modules/web.dom-collections.for-each */ "./node_modules/core-js/modules/web.dom-collections.for-each.js");
+/* harmony import */ var core_js_modules_web_dom_collections_for_each__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(core_js_modules_web_dom_collections_for_each__WEBPACK_IMPORTED_MODULE_0__);
+
+
+var scroll = function scroll(upSelector) {
+  var upBtn = document.querySelector(upSelector);
+  window.addEventListener('scroll', function () {
+    if (document.documentElement.scrollTop > 1650) {
+      upBtn.classList.add('animated', 'fadeIn');
+      upBtn.classList.remove('fadeOut');
+    } else {
+      upBtn.classList.add('fadeOut');
+      upBtn.classList.remove('fadeIn');
+    }
+  });
+  var links = document.querySelectorAll('[href^="#"]'),
+      //получаем все ссылки на лендинг - каретка указывает, что название     начитается с #//
+  speed = 0.1;
+  links.forEach(function (link) {
+    link.addEventListener('click', function (e) {
+      e.preventDefault();
+      var widthTop = document.documentElement.scrollTop,
+          //отскроллено сверху
+      hash = this.hash,
+          toBlock = document.querySelector(hash).getBoundingClientRect().top,
+          //получаем блоки через название хеши и сразу через свойство топ этого метода (у него много свойств, касательно положения элемента) получаем расстояние от экрана (которое может быть и отрицательным, если мы уже проскроллили этот блок) до блока
+      start = null; //просто что бы запустить, в функции переназначается
+
+      requestAnimationFrame(step);
+
+      function step(time) {
+        //time приходит автоматически - время от загрузки страницы (почему приходит само - пока хз)
+        if (start === null) {
+          start = time;
+        }
+
+        ;
+        var progress = time - start,
+            r = toBlock < 0 ? Math.max(widthTop - progress / speed, widthTop + toBlock) : Math.min(widthTop + progress / speed, widthTop + toBlock); //r - сколько надо проскроллить за анимацию до блока
+
+        document.documentElement.scrollTo(0, r);
+
+        if (r != widthTop + toBlock) {
+          requestAnimationFrame(step);
+        } else {
+          location.hash = hash;
+        }
+      }
+    });
+  });
+};
+
+/* harmony default export */ __webpack_exports__["default"] = (scroll);
 
 /***/ }),
 
